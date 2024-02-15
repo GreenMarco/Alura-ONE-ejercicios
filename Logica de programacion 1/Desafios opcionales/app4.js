@@ -1,4 +1,4 @@
-/*
+
 //1. Crea un programa que utilice console.log para mostrar un mensaje de bienvenida.
 console.log("Bienvenido");
 
@@ -65,7 +65,7 @@ if(nota <= 7){
 else{
     console.log(`Reprobado con: ${nota}`);
 }
-*/
+
 //11. Utiliza Math.random para generar cualquier número aleatorio y muestra ese número en la consola.
 console.log(Math.random());
 
