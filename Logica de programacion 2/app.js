@@ -43,19 +43,25 @@ function  asignarTexto(elemento, texto){
 
 function generarNumeroSecreto(numeroMaximoPosible){
     let numeroGenerado = Math.floor(Math.random()*numeroMaximoPosible)+1;
-    //Si el numero generado esta en la lista repetimos, si no ejecutamos normal
-    if(listaNumerosSorteados.includes(numeroGenerado)){
-        return generarNumeroSecreto(numeroMaximoPosible);
+    //Si ya sorteamos todos los numeros
+    if(listaNumerosSorteados.length == numeroMaximoPosible){
+        asignarTexto('p','Ya se sortearon todos los numeros posibles');
     }
     else{
-        listaNumerosSorteados.push(numeroGenerado);
-        return numeroGenerado;
+        //Si el numero generado esta en la lista repetimos, si no ejecutamos normal
+        if(listaNumerosSorteados.includes(numeroGenerado)){
+            return generarNumeroSecreto(numeroMaximoPosible);
+        }
+        else{
+            listaNumerosSorteados.push(numeroGenerado);
+            return numeroGenerado;
+        }
     }
 }
 
 function condicionesIniciales(){
     asignarTexto('h1','Juego del numero secreto');
-    asignarTexto('p','Indica un numero del 1 al 10');
+    asignarTexto('p',`Indica un numero del 1 al ${numeroMaximoPosible}`);
     numeroSecreto = generarNumeroSecreto();
     intentos=1;
     numeroMaximoPosible = 10;
